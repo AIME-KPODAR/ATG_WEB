@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titre_page %}Page introuvable — Aimé Tic Tac Toe Game{% endblock %}
+{% block titre %}PAGE INTROUVABLE{% endblock %}
+
+{% block contenu %}
+<section class="page-texte">
+    <article class="aide">
+        <h2 class="aide-titre">Oups, cette page n'existe pas.</h2>
+        <p>Retournez à l'accueil pour jouer.</p>
+        <div class="param-boutons"><a class="btn-violet" href="{{ url_for('accueil') }}">Accueil</a></div>
+    </article>
+</section>
+{% endblock %}

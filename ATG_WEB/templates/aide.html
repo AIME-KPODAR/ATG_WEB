@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block titre_page %}Aide — Aimé Tic Tac Toe Game{% endblock %}
+{% block titre %}AIDE{% endblock %}
+
+{% block contenu %}
+<section class="page-texte">
+    <article class="aide">
+        <h2 class="aide-titre">Bienvenue dans Aimé Tic Tac Toe Game</h2>
+        <p>Une variante du morpion où chaque joueur n'a que 3 pions et doit ensuite les déplacer.</p>
+
+        <h2>Règles du jeu</h2>
+        <p><strong>1. Phase de placement</strong><br>Chaque joueur pose à tour de rôle ses 3 pions sur des cases vides.</p>
+        <p><strong>2. Phase de déplacement</strong><br>Une fois ses 3 pions posés, on déplace l'un de ses pions vers une case VIDE ADJACENTE
+            (haut, bas, gauche, droite ou en diagonale). Touchez votre pion, puis la case voulue ; les cases possibles sont
+            signalées par des points verts.</p>
+        <p><strong>3. Victoire</strong><br>Le premier joueur qui aligne ses 3 pions (ligne, colonne ou diagonale) gagne.
+            Si une limite de coups est réglée dans les Paramètres, la partie est nulle une fois cette limite atteinte.</p>
+
+        <h2>Les modes</h2>
+        <ul>
+            <li><strong>Mode deux joueurs</strong> : à tour de rôle sur le même écran. Les noms se règlent dans Paramètres.</li>
+            <li><strong>Mode solo</strong> : contre l'ordinateur, en 3 niveaux (facile, moyen, difficile). Vous choisissez votre
+                symbole et le niveau dans Paramètres.</li>
+        </ul>
+
+        <h2>Raccourcis en partie (clavier)</h2>
+        <p><kbd>R</kbd> nouvelle partie &nbsp;·&nbsp; <kbd>M</kbd> musique on/off &nbsp;·&nbsp; <kbd>Échap</kbd> retour à l'accueil.<br>
+            Un clic sur le plateau après la fin d'une partie en lance une nouvelle.</p>
+
+        <h2>Astuces</h2>
+        <ul>
+            <li>Le centre est la case la plus forte : elle touche toutes les autres cases.</li>
+            <li>Un pion bloqué (aucune case adjacente libre) ne peut pas bouger ; si vous ne pouvez plus jouer, votre tour est
+                passé automatiquement.</li>
+            <li>Vos réglages et statistiques sont enregistrés dans ce navigateur, sur cet appareil.</li>
+        </ul>
+
+        <p class="aide-pied">Créé par Assiongbon Aimé KPODAR — ATG (Aimé · Tic tac toe · Game)</p>
+
+        <div class="param-boutons">
+            <a class="btn-violet" href="{{ url_for('intro') }}">Voir la vidéo d'introduction</a>
+            <a class="btn-violet" href="{{ url_for('accueil') }}">Fermer</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

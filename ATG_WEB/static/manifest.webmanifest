@@ -1,0 +1,26 @@
+{
+  "name": "Aimé Tic Tac Toe Game",
+  "short_name": "ATG Tic Tac Toe",
+  "description": "Morpion à 3 pions : jouez à deux ou contre l'ordinateur.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F6F1FA",
+  "theme_color": "#800080",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/static/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titre_page %}{{ "Deux joueurs" if mode == "duel" else "Contre l'ordinateur" }} — Aimé Tic Tac Toe Game{% endblock %}
+{% block attrs_body %}data-musique="1"{% endblock %}
+{% block titre %}<span id="titre-mode">{{ 'DEUX JOUEURS' if mode == 'duel' else 'SOLO' }}</span>{% endblock %}
+
+{% block contenu %}
+<section class="jeu" data-mode="{{ mode }}">
+
+    <div class="jeu-scores">
+        <span id="score-x" class="score score-x">Joueur X (X) : 0</span>
+        <span id="minuteur" class="minuteur" aria-label="Temps de la partie">00:00</span>
+        <span id="score-o" class="score score-o">Joueur O (O) : 0</span>
+    </div>
+
+    <p id="etat" class="etat" role="status" aria-live="polite"></p>
+
+    <div id="zone-plateau" class="zone-plateau">
+        <canvas id="plateau" aria-label="Plateau de jeu"></canvas>
+    </div>
+
+    <div class="jeu-boutons">
+        <button id="btn-rejouer"  class="btn-violet" type="button">Rejouer (R)</button>
+        <button id="btn-musique"  class="btn-violet" type="button">Musique : oui (M)</button>
+        <button id="btn-scores"   class="btn-violet" type="button">Scores à zéro</button>
+        <a      id="btn-fermer"   class="btn-violet" href="{{ url_for('accueil') }}">Fermer</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/logique.js') }}"></script>
+<script src="{{ url_for('static', filename='js/partie.js') }}"></script>
+{% endblock %}

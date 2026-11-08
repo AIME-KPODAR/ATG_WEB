@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titre_page %}Vidéo d'introduction — Aimé Tic Tac Toe Game{% endblock %}
+{% block titre %}VIDÉO D'INTRODUCTION{% endblock %}
+
+{% block contenu %}
+<section class="intro">
+    <div class="intro-scene" id="scene">
+        <video id="video" playsinline preload="auto" poster="{{ url_for('static', filename='img/imgbd2.png') }}">
+            <source src="{{ url_for('static', filename='video/intro_video.mp4') }}" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+        </video>
+        <!-- Affiché à la fin de la vidéo : l'image de fond du jeu -->
+        <img id="image-fin" class="intro-fin" src="{{ url_for('static', filename='img/imgbd2.png') }}" alt="Aimé Tic Tac Toe Game" hidden>
+        <!-- Affiché si le navigateur bloque la lecture automatique -->
+        <button id="btn-lancer" class="intro-lancer" type="button" hidden>▶&nbsp; Lancer l'introduction</button>
+    </div>
+    <div class="intro-barre">
+        <button id="btn-revoir" class="btn-violet" type="button">Revoir</button>
+        <a class="btn-violet" href="{{ url_for('accueil') }}">Passer / Fermer</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/intro.js') }}"></script>
+{% endblock %}

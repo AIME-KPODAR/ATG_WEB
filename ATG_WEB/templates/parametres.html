@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block titre_page %}Paramètres — Aimé Tic Tac Toe Game{% endblock %}
+{% block titre %}PARAMÈTRES{% endblock %}
+
+{% block contenu %}
+<section class="page-texte">
+    <form id="form-param" class="param" autocomplete="off">
+
+        <h2>Joueurs</h2>
+        <label class="ligne"><span>Nom du joueur X</span><input type="text" id="nom_x" maxlength="16"></label>
+        <label class="ligne"><span>Nom du joueur O</span><input type="text" id="nom_o" maxlength="16"></label>
+
+        <h2>Son</h2>
+        <label class="coche"><input type="checkbox" id="musique"> Musique de fond</label>
+        <label class="coche"><input type="checkbox" id="effets"> Effets sonores</label>
+        <label class="ligne"><span>Volume</span>
+            <span class="curseur"><input type="range" id="volume" min="0" max="100" step="1"><output id="volume-val">60</output></span>
+        </label>
+
+        <h2>Partie</h2>
+        <div class="ligne"><span>Premier à jouer</span>
+            <span class="choix">
+                <label><input type="radio" name="premier" value="X"> X</label>
+                <label><input type="radio" name="premier" value="O"> O</label>
+                <label><input type="radio" name="premier" value="alternance"> Alternance</label>
+            </span>
+        </div>
+        <label class="ligne"><span>Limite de coups</span>
+            <span class="curseur"><input type="number" id="limite_coups" min="0" max="200" step="1" inputmode="numeric">
+            <small>(0 = illimité, sinon match nul)</small></span>
+        </label>
+
+        <h2>Mode solo</h2>
+        <div class="ligne"><span>Difficulté</span>
+            <span class="choix">
+                <label><input type="radio" name="difficulte" value="facile"> Facile</label>
+                <label><input type="radio" name="difficulte" value="moyen"> Moyen</label>
+                <label><input type="radio" name="difficulte" value="difficile"> Difficile</label>
+            </span>
+        </div>
+        <div class="ligne"><span>Votre symbole</span>
+            <span class="choix">
+                <label><input type="radio" name="symbole_solo" value="X"> X</label>
+                <label><input type="radio" name="symbole_solo" value="O"> O</label>
+            </span>
+        </div>
+
+        <h2>Démarrage</h2>
+        <label class="coche"><input type="checkbox" id="intro_demarrage"> Lancer la vidéo d'introduction à l'ouverture du site</label>
+
+        <h2>Statistiques</h2>
+        <p id="stats" class="stats"></p>
+
+        <p id="confirmation" class="confirmation" role="status" aria-live="polite"></p>
+
+        <div class="param-boutons">
+            <button type="submit" class="btn-violet">Enregistrer</button>
+            <button type="button" id="btn-defaut" class="btn-violet">Par défaut</button>
+            <button type="button" id="btn-stats0" class="btn-violet">Stats à zéro</button>
+            <a class="btn-violet" id="btn-annuler" href="{{ url_for('accueil') }}">Annuler</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/parametres.js') }}"></script>
+{% endblock %}

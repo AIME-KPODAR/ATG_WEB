@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block contenu %}
+<section class="accueil">
+    <div class="accueil-fond">
+        <img src="{{ url_for('static', filename='img/imgbd2.png') }}" alt="Aimé Tic Tac Toe Game" width="900" height="650">
+    </div>
+
+    <!-- Bulle clignotante : indique où cliquer pour ouvrir le menu -->
+    <button id="indication-menu" class="indication-menu" type="button" hidden>▲&nbsp; Cliquez ici pour ouvrir le menu</button>
+
+    <div class="accueil-bas">
+        <div class="accueil-boutons">
+            <a class="btn-orange" href="{{ url_for('duel') }}">Jouer à deux</a>
+            <a class="btn-orange" href="{{ url_for('solo') }}">Jouer contre l'ordinateur</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    /* Option « Lancer la vidéo d'introduction au démarrage » (une fois par visite). */
+    (function () {
+        try {
+            if (Reglages.get().intro_demarrage && !sessionStorage.getItem("atg_intro_vue")) {
+                sessionStorage.setItem("atg_intro_vue", "1");
+                location.replace("{{ url_for('intro') }}");
+            }
+        } catch (e) {}
+    })();
+</script>
+{% endblock %}
